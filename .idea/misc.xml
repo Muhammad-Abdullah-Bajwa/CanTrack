@@ -5,6 +5,7 @@
       <map>
         <entry key="app/src/main/res/drawable/ic_baseline_arrow_drop_down_24.xml" value="0.16145833333333334" />
         <entry key="app/src/main/res/drawable/ic_canada_prince_edward_island.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_flag_of_alberta.xml" value="0.10092592592592593" />
         <entry key="app/src/main/res/drawable/ic_flag_of_british_columbia.xml" value="0.21522883760558476" />
         <entry key="app/src/main/res/drawable/ic_flag_of_newfoundland_and_labrador.xml" value="0.16145833333333334" />
         <entry key="app/src/main/res/drawable/ic_flag_of_ontario.xml" value="0.2625" />
@@ -15,7 +16,7 @@
         <entry key="app/src/main/res/drawable/ic_virus.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.125" />
         <entry key="app/src/main/res/layout/activity_province.xml" value="0.125" />
-        <entry key="app/src/main/res/layout/province_item_layout.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/province_item_layout.xml" value="0.25" />
       </map>
     </option>
   </component>

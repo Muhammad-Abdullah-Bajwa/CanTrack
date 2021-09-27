@@ -10,5 +10,5 @@ https://user-images.githubusercontent.com/65614549/134949666-c09efa3e-3fe0-4d08-
 
 
 
-#TO-DO:
-Display historical data for a province using a [sparkChart](https://github.com/robinhood/spark)
+
+To-do: Display historical data for a province using a [sparkChart](https://github.com/robinhood/spark)

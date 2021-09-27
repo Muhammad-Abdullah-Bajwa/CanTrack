@@ -2,10 +2,11 @@ package com.example.worldcovid19tracker
 
 import android.annotation.SuppressLint
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.worldcovid19tracker.databinding.ActivityProvinceBinding
@@ -15,11 +16,13 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.*
 
 private const val BASE_URL = "https://api.opencovid.ca/"
 private lateinit var binding: ActivityProvinceBinding
 private lateinit var provincialData: MutableList<CovidData>
 private lateinit var nationalDailyData: CovidData
+private lateinit var adapter: ProvinceAdapter
 
 
 class ProvinceActivity : AppCompatActivity() {
@@ -28,6 +31,11 @@ class ProvinceActivity : AppCompatActivity() {
         binding = ActivityProvinceBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+
+        binding.searchBar.addTextChangedListener {
+            filter(it.toString())
+        }
 
         val recyclerview = findViewById<RecyclerView>(R.id.provinces)
 
@@ -57,7 +65,8 @@ class ProvinceActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<Summary>, t: Throwable) {
-                Log.e(TAG, "onFailure $t")            }
+                Log.e(TAG, "onFailure $t")
+            }
         }
         )
 
@@ -81,7 +90,7 @@ class ProvinceActivity : AppCompatActivity() {
 
                 provincialData.sortBy { it.province }
 
-                val adapter = ProvinceAdapter(provincialData)
+                adapter = ProvinceAdapter(provincialData)
                 recyclerview.adapter = adapter
 
                 Log.i(TAG, "Update graph with new daily national numbers")
@@ -91,7 +100,13 @@ class ProvinceActivity : AppCompatActivity() {
                 Log.e(TAG, "onFailure $t")
             }
         })
+    }
 
-
+    private fun filter(editable: String) {
+        val filteredList = provincialData.filter {
+            it.province.lowercase(Locale.getDefault())
+                .contains(editable.toLowerCase(Locale.getDefault()))
+        }
+        adapter.filterList(filteredList as MutableList<CovidData>)
     }
 }

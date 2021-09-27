@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.worldcovid19tracker.databinding.ProvinceItemLayoutBinding
 import java.text.NumberFormat
 
-class ProvinceAdapter(private val list: MutableList<CovidData>) :
+class ProvinceAdapter(private var list: MutableList<CovidData>) :
     RecyclerView.Adapter<ProvinceAdapter.ProvinceViewHolder>() {
     inner class ProvinceViewHolder(val binding: ProvinceItemLayoutBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -20,6 +20,11 @@ class ProvinceAdapter(private val list: MutableList<CovidData>) :
                 false
             )
         )
+    }
+
+    fun filterList(newList: MutableList<CovidData>) {
+        this.list = newList
+        notifyDataSetChanged()
     }
 
     override fun onBindViewHolder(holder: ProvinceViewHolder, position: Int) {

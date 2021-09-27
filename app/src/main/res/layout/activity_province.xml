@@ -6,6 +6,26 @@
     android:orientation="vertical"
     tools:context=".ProvinceActivity">
 
+    <EditText
+        android:id="@+id/search_bar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/ic_search_background"
+        android:drawableStart="@drawable/ic_baseline_search_24"
+        android:drawablePadding="12dp"
+        android:drawableTint="@color/white"
+        android:hint="@string/search_for_provinces"
+        android:imeOptions="actionSearch"
+        android:importantForAutofill="no"
+        android:inputType=""
+        android:maxLines="1"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
+
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -16,31 +36,33 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            tools:text = "Province"
             android:layout_marginStart="12dp"
+            android:fontFamily="@string/regular"
             android:textSize="@dimen/text_size"
-            android:fontFamily="@string/regular"/>
+            android:visibility="gone"
+            tools:text="Province" />
 
         <TextView
             android:id="@+id/selectedProvinceCases"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            tools:text = "123456"
-            android:textColor="@color/black"
             android:layout_marginEnd="12dp"
+            android:fontFamily="@string/regular"
+            android:textColor="@color/black"
             android:textSize="@dimen/text_size"
-            android:fontFamily="@string/regular"/>
+            android:visibility="gone"
+            tools:text="123456" />
 
     </RelativeLayout>
 
-    <view class="androidx.recyclerview.widget.RecyclerView"
+    <view
+        android:id="@+id/provinces"
+        class="androidx.recyclerview.widget.RecyclerView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingBottom="12dp"
-        android:id = "@+id/provinces"
-        tools:listitem="@layout/province_item_layout"
-        >
+        tools:listitem="@layout/province_item_layout">
 
     </view>
 </LinearLayout>

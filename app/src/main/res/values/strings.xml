@@ -1,0 +1,16 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">WORLD COVID 19 TRACKER</string>
+
+    <string name="bold" tools:ignore="ReferenceType">@font/rubikbold</string>
+    <string name="regular" tools:ignore="ReferenceType">@font/rubikregular</string>
+    <string name="light" tools:ignore="ReferenceType">@font/rubiklight</string>
+    <string name="covid_19_tracker">COVID-19 Tracker</string>
+    <string name="confirmed">Confirmed</string>
+    <string name="active">Active</string>
+    <string name="recovered">Recovered</string>
+    <string name="deaths">Deaths</string>
+    <string name="tests">Tests</string>
+
+    <string name="Last_update">Last updated on: </string>
+    <string name="tested">Tested</string>
+</resources>

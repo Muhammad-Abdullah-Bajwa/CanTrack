@@ -1,10 +1,10 @@
 package com.example.worldcovid19tracker
 
 import android.annotation.SuppressLint
-import android.icu.util.Calendar
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import com.example.worldcovid19tracker.databinding.ActivityMainBinding
 import com.google.gson.GsonBuilder
 import org.eazegraph.lib.models.PieModel
@@ -15,8 +15,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
-import java.time.Clock
-import java.time.LocalDateTime
 import java.util.*
 
 const val TAG = "MainActivity"
@@ -30,6 +28,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
         val outputDateFormat = SimpleDateFormat("MMM dd, yyyy", Locale.US)
 
@@ -81,9 +83,6 @@ class MainActivity : AppCompatActivity() {
                 binding.piechart.addPieSlice(PieModel("Death", nationalDailyData.cumulative_deaths.toFloat(), getColor(R.color.red_pie)))
 
                 binding.piechart.startAnimation()
-
-
-
             }
 
             override fun onFailure(call: Call<Summary>, t: Throwable) {
@@ -111,9 +110,7 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
+        binding.countryName.setOnClickListener { startActivity(Intent(this, ProvinceActivity::class.java)) }
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
     }
 }

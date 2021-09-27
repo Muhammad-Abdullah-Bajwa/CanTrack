@@ -1,6 +1,6 @@
 # CANADA-COVID-19-Tracker
 
-This app uses [retrofit](https://square.github.io/retrofit/) and [gson](https://github.com/google/gson) to pull data from the https://opencovid.ca/api/ api
+This app uses [retrofit](https://square.github.io/retrofit/) and [gson](https://github.com/google/gson) to pull data from the https://opencovid.ca api
 
 It uses [EazeGraph](https://androidrepo.com/repo/blackfizz-EazeGraph-android-chart) to graph this data
 
